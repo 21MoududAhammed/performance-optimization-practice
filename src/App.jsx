@@ -1,5 +1,7 @@
+import Example1 from "./components/Example1";
+
 export default function App(){
     return (
-        <h1>We will learn performance optimization in react</h1>
+        <Example1></Example1>
     );
 }
