@@ -1,8 +1,28 @@
-# React + Vite
+# Performance Optimization in React.js
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## React.memo(): It memoizes a functional component and its props. Doing so helps to prevent unnecessary re-rendering that originate from the re-renderings of the component's parent / ancestors.
 
-Currently, two official plugins are available:
+``` js
+import React form 'react';
+function Title(){
+    return(
+        <h1>This is Title of this Page.</h1>
+    )
+}
+export default React.memo(Title)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```
+
+## useCallback(): It is cashed a callback function and doesn't get redefined on every render.
+
+``` js
+const handleCount1 = () =>{
+    setCount1((prevCount)=> prevCount + 1);
+}
+// after using useCallback
+const handleCount1 = useCallback(() =>{
+    setCount1((prevCount)=> prevCount + 1);
+},[]) 
+// When the dependency changes, it will forget the callBack or redefined again.
+
+```
